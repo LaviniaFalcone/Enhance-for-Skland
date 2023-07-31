@@ -1,0 +1,28 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+     - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+
+      - name: Install and Build
+        run: |
+          npm install -g yarn
+          yarn
+          yarn build
+          
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy0action@v4.3.3
+        with:
+          BRANCH: dist
+          FOLDER: dist
+          REPOSITORY_NAME: LaviniaFalcone/Enhance-for-Skland
+          TARGET_FOLDER: /
