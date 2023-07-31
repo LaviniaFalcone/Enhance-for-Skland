@@ -1,0 +1,56 @@
+* :not(.pi) {
+    margin: 0;
+    font-family: "JetBrains Mono", var(--font-family) !important;
+}
+
+.tag {
+    padding: 0.1rem 0.3rem;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.p-image.p-component > img {
+    display: block;
+}
+
+.surface-d {
+    background: var(--surface-d);
+}
+
+.border-d {
+    border-color: var(--surface-d);
+}
+
+.text-d {
+    color: var(--surface-d);
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.grid {
+    flex-wrap: nowrap !important;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("/src/assets/fonts/JetBrainsMono-Regular.woff2") format("woff");
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: italic;
+    src: url("/src/assets/fonts/JetBrainsMono-Italic.woff2") format("woff");
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-weight: bold;
+    src: url("/src/assets/fonts/JetBrainsMono-Bold.woff2") format("woff");
+}
