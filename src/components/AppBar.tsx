@@ -26,13 +26,15 @@ const AppBar = () => {
     ];
 
     return (
-        <>
-            <div className='flex align-items-center w-full h-4rem p-4 gap-2 surface-card select-none'>
-                <div className='flex flex-column'>
-                    <div className='text-xs font-italic'>Enhance for</div>
-                    <div className='text-2xl' style={{lineHeight: '1.75rem'}}>Skland.</div>
+        <div className='sticky top-0 w-full z-5'>
+            <div className='flex align-items-center h-4rem px-3 gap-3 surface-card select-none'>
+                <div className='flex align-items-center gap-1'>
+                    <div className='flex flex-column'>
+                        <div className='text-xs font-italic'>Enhance for</div>
+                        <div className='text-2xl' style={{lineHeight: '1.75rem'}}>Skland.</div>
+                    </div>
+                    <Tag severity='info'>Beta</Tag>
                 </div>
-                <Tag severity='info'>Beta</Tag>
                 <div className='flex-grow-1'/>
                 {
                     userStore.user &&
@@ -48,7 +50,7 @@ const AppBar = () => {
                 <Menu ref={menu} className='mt-2' model={options} popup/>
             </div>
             <Divider className='m-0'/>
-        </>
+        </div>
     );
 };
 
