@@ -1,7 +1,6 @@
 import React from 'react';
 import {Divider} from 'primereact/divider';
 import {Button} from 'primereact/button';
-import {PreviewOpen} from '@icon-park/react';
 import {useNavigate} from 'react-router-dom';
 
 interface SklandBindingCardProps {
@@ -25,7 +24,7 @@ const SklandBindingCard = ({value}: SklandBindingCardProps) => {
             <div className='flex flex-column gap-2 p-3'>
                 {
                     value.bindingList.map((role, index) => (
-                        <div className='flex align-items-center gap-2 border-round border-1 border-d p-2' key={index}>
+                        <div className='flex align-items-center surface-0 border-round-lg gap-2 p-2' key={index}>
                             <div className='text-xs surface-d border-round select-none tag'>
                                 {role.channelName.toUpperCase()}
                             </div>
@@ -36,7 +35,7 @@ const SklandBindingCard = ({value}: SklandBindingCardProps) => {
                                 <div className='text-xs bg-primary-900 border-round select-none tag'>默认角色</div>
                             }
                             <div className='flex-grow-1'/>
-                            <Button className='w-2rem h-2rem' icon={<PreviewOpen size='20'/>} rounded outlined
+                            <Button className='w-2rem h-2rem' icon='pi pi-sign-in' outlined
                                     onClick={() => go(role.uid, role.channelMasterId)}/>
                         </div>
                     ))
