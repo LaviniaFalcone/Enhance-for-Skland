@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [react(), viteCompression({
         verbose: true,
         disable: false,
-        threshold: 5120,
+        threshold: 102400,
         algorithm: 'gzip',
         ext: '.gz'
     })],
