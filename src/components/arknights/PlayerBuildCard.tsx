@@ -170,15 +170,24 @@ const PlayerBuildCard = ({character}: PlayerBuildCardProps) => {
             return getArknightsCharSkillIconUrl(char!.skills[skillIndex].id);
         };
 
-        const getSkillLevel = (skillIndex: number): number => {
-            return char?.skills[skillIndex]?.specializeLevel || -1;
+        const getSkillLevel = () => {
+            if (training.trainee) {
+                return char?.skills[training.trainee.targetSkill]?.specializeLevel || -1;
+            }
+            return -1;
         };
 
-        const getStatus = (skillLevel: number) => {
-            if (getSkillLevel(training.trainee!.targetSkill) >= skillLevel) {
+        const isCompleted = (skillLevel: number) => {
+            if (!training.trainee) return 0;
+            if (getSkillLevel() >= skillLevel) {
                 return 100;
             }
             return 0;
+        };
+
+        const isUpgrading = (targetLevel: number) => {
+            if (training.remainSecs == 0) return false;
+            return getSkillLevel() == targetLevel - 1;
         };
 
         return (
@@ -198,12 +207,12 @@ const PlayerBuildCard = ({character}: PlayerBuildCardProps) => {
                             training.trainee && training.trainee.targetSkill != -1 ?
                                 <Avatar image={getSkillIconUrl(training.trainee.targetSkill)}/> : <Avatar/>
                         }
-                        <MiniProgressBar className='flex-grow-1 h-full' color='lightgreen' value={getStatus(0)}
-                                         indeterminate={training.remainSecs != 0 && getSkillLevel(training.trainee!.targetSkill) == 0}/>
-                        <MiniProgressBar className='flex-grow-1 h-full' color='gold' value={getStatus(1)}
-                                         indeterminate={training.remainSecs != 0 && getSkillLevel(training.trainee!.targetSkill) == 1}/>
-                        <MiniProgressBar className='flex-grow-1 h-full' color='tomato' value={getStatus(2)}
-                                         indeterminate={training.remainSecs != 0 && getSkillLevel(training.trainee!.targetSkill) == 2}/>
+                        <MiniProgressBar className='flex-grow-1 h-full' color='lightgreen' value={isCompleted(0)}
+                                         indeterminate={isUpgrading(1)}/>
+                        <MiniProgressBar className='flex-grow-1 h-full' color='gold' value={isCompleted(1)}
+                                         indeterminate={isUpgrading(2)}/>
+                        <MiniProgressBar className='flex-grow-1 h-full' color='tomato' value={isCompleted(2)}
+                                         indeterminate={isUpgrading(3)}/>
                     </div>
                     {charsGrid(training.trainer ? [training.trainer] : [], 1)}
                 </div>
