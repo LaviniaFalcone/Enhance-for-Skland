@@ -22,7 +22,7 @@ jobs:
           yarn build
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy0action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           BRANCH: dist
           FOLDER: dist
