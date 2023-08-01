@@ -13,6 +13,7 @@ import '@icon-park/react/styles/index.css';
 
 axios.defaults.baseURL = 'https://zonai.skland.com';
 axios.defaults.headers.platform = 1;
+axios.defaults.headers.os = 32;
 axios.defaults.headers.language = 'zh-cn';
 axios.defaults.headers.vName = '0.1.4';
 axios.defaults.headers.manufacturer = 'Samsung';
