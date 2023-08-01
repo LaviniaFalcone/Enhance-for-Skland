@@ -14,7 +14,7 @@ import {readLocalStorage, removeLocalStorage, writeLocalStorage, writeSessionSto
 import {InputTextarea} from 'primereact/inputtextarea';
 import userStore from '../store/userStore';
 
-const SklandCredListView = () => {
+const SklandCredLoginView = () => {
     const navigate = useNavigate();
     const toast = useRef<Toast>(null);
 
@@ -199,4 +199,4 @@ const SklandCredListView = () => {
     );
 };
 
-export default SklandCredListView;
+export default SklandCredLoginView;

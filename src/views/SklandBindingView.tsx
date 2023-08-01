@@ -7,7 +7,7 @@ import {LocalUser} from '../location';
 import {readSessionStorage} from '../util/storage';
 import userStore from '../store/userStore';
 
-const SklandBindingQueryView = () => {
+const SklandBindingView = () => {
     const navigate = useNavigate();
 
     const [binding, setBinding] = useState<SklandBinding[]>();
@@ -27,4 +27,4 @@ const SklandBindingQueryView = () => {
     );
 };
 
-export default SklandBindingQueryView;
+export default SklandBindingView;

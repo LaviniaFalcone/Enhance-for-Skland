@@ -121,6 +121,8 @@ declare interface ArknightsBuildRoom {
 declare interface ArknightsBuildLabor {
     value: number;
     maxValue: number;
+    remainSecs: number;
+    lastUpdateTime: number;
 }
 
 /**

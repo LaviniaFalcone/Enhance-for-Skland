@@ -10,17 +10,17 @@ import {Divider} from 'primereact/divider';
 import {Avatar} from 'primereact/avatar';
 import MiniProgressBar from '../MiniProgressBar';
 
-import Evolve0 from '../../assets/img/E0.png';
-import Evolve1 from '../../assets/img/E1.png';
-import Evolve2 from '../../assets/img/E2.png';
+import Evolve0 from '../../assets/arknights/img/evolve_0.png';
+import Evolve1 from '../../assets/arknights/img/evolve_1.png';
+import Evolve2 from '../../assets/arknights/img/evolve_2.png';
 
 const evolveIcon = [Evolve0, Evolve1, Evolve2];
 
-interface PlayerAssistCharCard {
+interface AssistCharModule {
     character: ArknightsPlayer;
 }
 
-const PlayerAssistCharCard = ({character}: PlayerAssistCharCard) => {
+const PlayerAssistCharCard = ({character}: AssistCharModule) => {
     const {assistChars, charInfoMap, equipmentInfoMap} = character;
 
     const playerAssistCharCard = (char: ArknightsAssistChar) => {

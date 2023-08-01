@@ -1,8 +1,8 @@
 import {RouteObject} from 'react-router-dom';
 import React from 'react';
-import SklandBindingQueryView from '../views/SklandBindingQueryView';
-import ArknightsPlayerView from '../views/ArknightsPlayerView';
-import SklandCredListView from '../views/SklandCredListView';
+import SklandBindingView from '../views/SklandBindingView';
+import StatusView from '../views/arknights/StatusView';
+import SklandCredLoginView from '../views/SklandCredLoginView';
 
 const route = (path: string, element: React.ReactNode, children?: RouteObject[]): RouteObject => ({
     path,
@@ -11,9 +11,9 @@ const route = (path: string, element: React.ReactNode, children?: RouteObject[])
 });
 
 export default [
-    route('binding', <SklandBindingQueryView/>),
+    route('binding', <SklandBindingView/>),
     route('arknights', undefined, [
-        route('info', <ArknightsPlayerView/>)
+        route('info', <StatusView/>)
     ]),
-    route('', <SklandCredListView/>)
+    route('', <SklandCredLoginView/>)
 ];

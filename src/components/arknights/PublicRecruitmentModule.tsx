@@ -48,7 +48,7 @@ const getTagColor = (tagId: number) => {
     return 'transparent';
 };
 
-const PlayerRecruitCard = ({character}: PlayerRecruitCardProps) => {
+const PublicRecruitmentModule = ({character}: PlayerRecruitCardProps) => {
     const {building, recruit} = character;
 
     const recruitCard = (data: ArknightsRecruit, index: number) => {
@@ -129,4 +129,4 @@ const PlayerRecruitCard = ({character}: PlayerRecruitCardProps) => {
     );
 };
 
-export default PlayerRecruitCard;
+export default PublicRecruitmentModule;

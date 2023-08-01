@@ -27,7 +27,7 @@ interface PlayerBuildCardProps {
     character: ArknightsPlayer;
 }
 
-const PlayerBuildCard = ({character}: PlayerBuildCardProps) => {
+const InfrastructureModule = ({character}: PlayerBuildCardProps) => {
     const {building, chars, charInfoMap} = character;
     const {control, dormitories, hire, labor, manufactures, meeting, powers, tradings, training} = building;
 
@@ -392,4 +392,4 @@ const PlayerBuildCard = ({character}: PlayerBuildCardProps) => {
     );
 };
 
-export default PlayerBuildCard;
+export default InfrastructureModule;

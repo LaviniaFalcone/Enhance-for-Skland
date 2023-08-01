@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useMountEffect} from 'primereact/hooks';
-import {queryArknightsRole} from '../skland-api/fn';
-import PlayerBusinessCard from '../components/arknights/PlayerBusinessCard';
-import PlayerAssistCharCard from '../components/arknights/PlayerAssistCharCard';
-import PlayerRecruitCard from '../components/arknights/PlayerRecruitCard';
-import PlayerBuildCard from '../components/arknights/PlayerBuildCard';
-import {LocalUser} from '../location';
-import {readSessionStorage} from '../util/storage';
-import userStore from '../store/userStore';
+import {queryArknightsRole} from '../../skland-api/fn';
+import PersonalModule from '../../components/arknights/PersonalModule';
+import PlayerAssistCharCard from '../../components/arknights/AssistCharModule';
+import PublicRecruitmentModule from '../../components/arknights/PublicRecruitmentModule';
+import InfrastructureModule from '../../components/arknights/InfrastructureModule';
+import {LocalUser} from '../../location';
+import {readSessionStorage} from '../../util/storage';
+import userStore from '../../store/userStore';
 
-const ArknightsPlayerView = () => {
+const StatusView = () => {
     const navigate = useNavigate();
     const {state: {uid, channel}} = useLocation();
 
@@ -33,8 +33,8 @@ const ArknightsPlayerView = () => {
             <div className='flex flex-column gap-2'>
                 <div className='grid'>
                     <div className='flex flex-column col-8 gap-3'>
-                        <PlayerBusinessCard character={character} channel={channel}/>
-                        <PlayerRecruitCard character={character}/>
+                        <PersonalModule character={character} channel={channel}/>
+                        <PublicRecruitmentModule character={character}/>
                     </div>
                     <div className='flex flex-column col-4 gap-3'>
                         <PlayerAssistCharCard character={character}/>
@@ -42,22 +42,14 @@ const ArknightsPlayerView = () => {
                 </div>
                 <div className='grid'>
                     <div className='col-12'>
-                        <PlayerBuildCard character={character}/>
+                        <InfrastructureModule character={character}/>
                     </div>
                 </div>
                 <div className='grid'>
                     <div className='col-12'>
-
-                    </div>
-                </div>
-                <div className='grid'>
-                    <div className='col-12'>
-
-                    </div>
-                </div>
-                <div className='grid'>
-                    <div className='col-12'>
-
+                        <div className='flex flex-column surface-card border-round-xl'>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,4 +59,4 @@ const ArknightsPlayerView = () => {
     return (<div className='flex flex-column gap-4'>{body()}</div>);
 };
 
-export default ArknightsPlayerView;
+export default StatusView;

@@ -11,7 +11,7 @@ interface PlayerBusinessCardProps {
     channel: number;
 }
 
-const PlayerBusinessCard = ({character, channel}: PlayerBusinessCardProps) => {
+const PersonalModule = ({character, channel}: PlayerBusinessCardProps) => {
     const {building, campaign, chars, charInfoMap, routine, status, skins, tower} = character;
 
     const getPlayerAp = () => {
@@ -221,4 +221,4 @@ const PlayerBusinessCard = ({character, channel}: PlayerBusinessCardProps) => {
     );
 };
 
-export default PlayerBusinessCard;
+export default PersonalModule;
