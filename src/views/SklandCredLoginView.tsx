@@ -3,7 +3,6 @@ import {Divider} from 'primereact/divider';
 import {InputText} from 'primereact/inputtext';
 import {Button} from 'primereact/button';
 import {Avatar} from 'primereact/avatar';
-import {queryUser} from '../skland-api/fn';
 import {AxiosError} from 'axios';
 import {Toast} from 'primereact/toast';
 import {useNavigate} from 'react-router-dom';
@@ -13,6 +12,7 @@ import {LocalUser} from '../location';
 import {readLocalStorage, removeLocalStorage, writeLocalStorage, writeSessionStorage} from '../util/storage';
 import {InputTextarea} from 'primereact/inputtextarea';
 import userStore from '../store/userStore';
+import {queryUser} from '../skland-api/user';
 
 const SklandCredLoginView = () => {
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const SklandCredLoginView = () => {
     const login = async (cred: string, user: SklandUser) => {
         writeLocalStorage('LastLogin', {cred, user});
         writeSessionStorage('CurrentLogin', {cred, user});
-        userStore.setUser(user);
+        userStore.user = user;
         navigate('/binding');
     };
 

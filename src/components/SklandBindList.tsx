@@ -3,11 +3,11 @@ import {Divider} from 'primereact/divider';
 import {Button} from 'primereact/button';
 import {useNavigate} from 'react-router-dom';
 
-interface SklandBindingCardProps {
+interface SklandBindListProps {
     value: SklandBinding;
 }
 
-const SklandBindingCard = ({value}: SklandBindingCardProps) => {
+const SklandBindList = ({value}: SklandBindListProps) => {
     const navigate = useNavigate();
 
     const go = (uid: string | number, channel: number) => {
@@ -45,4 +45,4 @@ const SklandBindingCard = ({value}: SklandBindingCardProps) => {
     );
 };
 
-export default SklandBindingCard;
+export default SklandBindList;

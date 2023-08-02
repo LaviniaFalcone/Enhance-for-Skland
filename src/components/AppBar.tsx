@@ -15,7 +15,7 @@ const AppBar = () => {
 
     const logout = () => {
         removeSessionStorage('CurrentLogin');
-        userStore.setUser();
+        userStore.user = undefined;
         navigate('/');
     };
 

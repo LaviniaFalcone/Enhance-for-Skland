@@ -1,18 +1,18 @@
 import React, {Fragment} from 'react';
 import {Avatar} from 'primereact/avatar';
-import {getArknightsCharAvatarUrl} from '../../skland-api/fn';
+import {getSkinAvatarUrl} from '../../skland-api/arknights/character';
 import {Divider} from 'primereact/divider';
 import {DatetimeFormat, datetimeFormat} from '../../util/time';
 import {Image} from 'primereact/image';
 import MiniProgressBar from '../MiniProgressBar';
 
-interface PlayerBusinessCardProps {
-    character: ArknightsPlayer;
+interface PersonalModuleProps {
+    model: Player;
     channel: number;
 }
 
-const PersonalModule = ({character, channel}: PlayerBusinessCardProps) => {
-    const {building, campaign, chars, charInfoMap, routine, status, skins, tower} = character;
+const PersonalModule = ({model, channel}: PersonalModuleProps) => {
+    const {building, campaign, chars, charInfoMap, routine, status, skins, tower} = model;
 
     const getPlayerAp = () => {
         return status.ap.max - Math.ceil((status.ap.completeRecoveryTime - new Date().getTime() / 1000) / 360);
@@ -23,7 +23,7 @@ const PersonalModule = ({character, channel}: PlayerBusinessCardProps) => {
     const playerAccountInfo = (
         <>
             <div className='flex surface-d border-round-lg overflow-hidden'>
-                <Avatar image={getArknightsCharAvatarUrl(status.avatar.id)} size='large'/>
+                <Avatar image={getSkinAvatarUrl(status.avatar.id)} size='large'/>
             </div>
             <div className='flex flex-column gap-1'>
                 <div className='flex align-items-center gap-2'>

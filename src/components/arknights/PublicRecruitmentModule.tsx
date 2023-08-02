@@ -4,9 +4,10 @@ import {Rating} from 'primereact/rating';
 import {Avatar} from 'primereact/avatar';
 import MiniProgressBar from '../MiniProgressBar';
 import {Check, Hourglass, Sleep, Square} from '@icon-park/react';
+import {Player, Recruit} from '../../skland-api/arknights';
 
-interface PlayerRecruitCardProps {
-    character: ArknightsPlayer;
+interface PublicRecruitmentModuleProps {
+    model: Player;
 }
 
 const recruitTag: { [id: number]: string } = {
@@ -48,10 +49,10 @@ const getTagColor = (tagId: number) => {
     return 'transparent';
 };
 
-const PublicRecruitmentModule = ({character}: PlayerRecruitCardProps) => {
-    const {building, recruit} = character;
+const PublicRecruitmentModule = ({model}: PublicRecruitmentModuleProps) => {
+    const {building, recruit} = model;
 
-    const recruitCard = (data: ArknightsRecruit, index: number) => {
+    const recruitCard = (data: Recruit, index: number) => {
         const progress = () => {
             switch (data.state) {
                 case 1:

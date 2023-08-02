@@ -37,20 +37,3 @@
 .grid {
     flex-wrap: nowrap !important;
 }
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("/src/assets/fonts/JetBrainsMono-Regular.woff2") format("woff");
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    font-style: italic;
-    src: url("/src/assets/fonts/JetBrainsMono-Italic.woff2") format("woff");
-}
-
-@font-face {
-    font-family: "JetBrains Mono";
-    font-weight: bold;
-    src: url("/src/assets/fonts/JetBrainsMono-Bold.woff2") format("woff");
-}

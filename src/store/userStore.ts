@@ -1,14 +1,18 @@
 import {makeAutoObservable} from 'mobx';
 
 class UserStore {
-    user: SklandUser | undefined;
+    private _user?: SklandUser;
+
+    get user(): SklandUser | undefined {
+        return this._user;
+    }
+
+    set user(value: SklandUser | undefined) {
+        this._user = value;
+    }
 
     constructor() {
         makeAutoObservable(this);
-    }
-
-    public setUser(user?: SklandUser) {
-        this.user = user;
     }
 }
 

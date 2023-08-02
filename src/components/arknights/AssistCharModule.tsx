@@ -1,35 +1,36 @@
 import React from 'react';
 import {Image} from 'primereact/image';
 import {
-    getArknightsCharAvatarUrl,
-    getArknightsCharSkillIconUrl,
     getEquipTypeIconUrl,
-    getEquipTypeShiningUrl
-} from '../../skland-api/fn';
+    getEquipTypeShiningUrl,
+    getSkillIconUrl,
+    getSkinAvatarUrl
+} from '../../skland-api/arknights/character';
 import {Divider} from 'primereact/divider';
 import {Avatar} from 'primereact/avatar';
 import MiniProgressBar from '../MiniProgressBar';
 
-import Evolve0 from '../../assets/arknights/img/evolve_0.png';
-import Evolve1 from '../../assets/arknights/img/evolve_1.png';
-import Evolve2 from '../../assets/arknights/img/evolve_2.png';
+import Evolve0 from '../../assets/arknights/img/icon_evolve_0.png';
+import Evolve1 from '../../assets/arknights/img/icon_evolve_1.png';
+import Evolve2 from '../../assets/arknights/img/icon_evolve_2.png';
+import {AssistCharacter, Player} from '../../skland-api/arknights';
 
 const evolveIcon = [Evolve0, Evolve1, Evolve2];
 
-interface AssistCharModule {
-    character: ArknightsPlayer;
+interface AssistCharacterModuleProps {
+    model: Player;
 }
 
-const PlayerAssistCharCard = ({character}: AssistCharModule) => {
-    const {assistChars, charInfoMap, equipmentInfoMap} = character;
+const AssistCharacterModule = ({model}: AssistCharacterModuleProps) => {
+    const {assistChars, charInfoMap, equipmentInfoMap} = model;
 
-    const playerAssistCharCard = (char: ArknightsAssistChar) => {
+    const playerAssistCharCard = (char: AssistCharacter) => {
         if (char) {
             const equip = char.equip && equipmentInfoMap[char.equip.id];
             return (
                 <div className='flex gap-2 gap-2'>
                     <div className='relative flex-shrink-0 surface-d w-6rem h-6rem border-round-xl overflow-hidden'>
-                        <Image className='absolute' width='100%' src={getArknightsCharAvatarUrl(char.skinId)}/>
+                        <Image className='absolute' width='100%' src={getSkinAvatarUrl(char.skinId)}/>
                         <Image className='absolute right-0 bottom-0 w-2rem h-2rem bg-black-alpha-30' width='100%'
                                src={evolveIcon[char.evolvePhase]}/>
                     </div>
@@ -60,7 +61,7 @@ const PlayerAssistCharCard = ({character}: AssistCharModule) => {
                             }
                         </div>
                         <div className='flex align-items-end gap-2'>
-                            {char.skillId ? <Avatar image={getArknightsCharSkillIconUrl(char.skillId)}/> : <Avatar/>}
+                            {char.skillId ? <Avatar image={getSkillIconUrl(char.skillId)}/> : <Avatar/>}
                             <div className='flex flex-column flex-grow-1'>
                                 <div className='flex select-none'>
                                     <div>Rank.</div>
@@ -103,4 +104,4 @@ const PlayerAssistCharCard = ({character}: AssistCharModule) => {
     );
 };
 
-export default PlayerAssistCharCard;
+export default AssistCharacterModule;

@@ -1,35 +1,35 @@
 /**
  * Arknights玩家数据
  **/
-declare interface ArknightsPlayer {
-    activity: ArknightsActivity;
-    activityInfoMap: { [id: string]: ArknightsActivityInfo };
-    assistChars: ArknightsAssistChar[];
-    building: ArknightsBuilding;
-    campaign: ArknightsCampaign;
-    campaignInfoMap: { [id: string]: ArknightsCampaignLevel };
-    campaignZoneInfoMap: { [id: string]: ArknightsCampaignZone };
-    chars: ArknightsChar[];
-    charInfoMap: { [id: string]: ArknightsCharInfo };
+export interface Player {
+    activity: Activity;
+    activityInfoMap: { [id: string]: ActivityInfo };
+    assistChars: AssistCharacter[];
+    building: Infrastructure;
+    campaign: Campaign;
+    campaignInfoMap: { [id: string]: CampaignLevelInfo };
+    campaignZoneInfoMap: { [id: string]: CampaignZoneInfo };
+    chars: Character[];
+    charInfoMap: { [id: string]: CharacterInfo };
     currentTs: number;
-    equipmentInfoMap: { [id: string]: ArknightsEquipmentInfo };
-    recruit: ArknightsRecruit[];
-    rouge: ArknightsRouge;
-    rougeInfoMap: { [id: string]: ArknightsRougeTheme };
-    routine: ArknightsRouting;
-    skins: ArknightsSkin[];
-    skinInfoMap: { [id: string]: ArknightsSkinInfo };
-    stageInfoMap: { [id: string]: ArknightsStageLevel };
-    status: ArknightsPlayerStatus;
-    tower: ArknightsTower;
-    towerInfoMap: { [id: string]: ArknightsTowerZone };
-    zoneInfoMap: { [id: string]: ArknightsZone };
+    equipmentInfoMap: { [id: string]: EquipmentInfo };
+    recruit: Recruit[];
+    rouge: Rouge;
+    rougeInfoMap: { [id: string]: RougeThemeInfo };
+    routine: Mission;
+    skins: Skin[];
+    skinInfoMap: { [id: string]: SkinInfo };
+    stageInfoMap: { [id: string]: StageLevelInfo };
+    status: PlayerStatus;
+    tower: Tower;
+    towerInfoMap: { [id: string]: TowerZoneInfo };
+    zoneInfoMap: { [id: string]: ZoneInfo };
 }
 
 /**
  * Arknights活动
  */
-declare interface ArknightsActivity {
+export interface Activity {
     actId: string;
     actReplicaId: string;
     type: string;
@@ -38,7 +38,7 @@ declare interface ArknightsActivity {
 /**
  * Arknights活动信息
  */
-declare interface ArknightsActivityInfo {
+export interface ActivityInfo {
     id: string;
     name: string;
     startTime: number;
@@ -50,9 +50,9 @@ declare interface ArknightsActivityInfo {
 /**
  * Arknights助战干员
  **/
-declare interface ArknightsAssistChar {
+export interface AssistCharacter {
     charId: string;
-    equip?: ArknightsEquipment;
+    equip?: Equipment;
     evolvePhase: 0 | 1 | 2;
     level: number;
     mainSkillLvl: 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -65,7 +65,7 @@ declare interface ArknightsAssistChar {
 /**
  * Arknights干员模组
  */
-declare interface ArknightsEquipment {
+export interface Equipment {
     id: string;
     level: 0 | 1 | 2 | 3;
 }
@@ -73,7 +73,7 @@ declare interface ArknightsEquipment {
 /**
  * Arknights模组信息
  */
-declare interface ArknightsEquipmentInfo {
+export interface EquipmentInfo {
     id: string;
     desc: string;
     name: string;
@@ -84,23 +84,23 @@ declare interface ArknightsEquipmentInfo {
 /**
  * Arknights基建信息
  */
-declare interface ArknightsBuilding {
-    control: ArknightsBuildControl;
-    dormitories: ArknightsBuildDormitory[];
-    hire: ArknightsBuildHire;
-    manufactures: ArknightsBuildManufacture[];
-    meeting: ArknightsBuildMeeting;
+export interface Infrastructure {
+    control: InfrastructureControl;
+    dormitories: InfrastructureDormitory[];
+    hire: InfrastructureHire;
+    manufactures: InfrastructureManufacture[];
+    meeting: InfrastructureMeeting;
     furniture: { total: number };
     labor: ArknightsBuildLabor;
-    powers: ArknightsBuildPower[];
-    tradings: ArknightsBuildTrading[];
-    training: ArknightsBuildTraining;
+    powers: InfrastructurePower[];
+    tradings: InfrastructureTrading[];
+    training: InfrastructureTraining;
 }
 
 /**
  * Arknights基建进驻干员
  */
-declare interface ArknightsBuildChar {
+export interface ResidentCharacters {
     charId: string;
     index: number;
     ap: number;
@@ -110,15 +110,15 @@ declare interface ArknightsBuildChar {
 /**
  * Arknights基建设施
  */
-declare interface ArknightsBuildRoom {
-    chars: ArknightsBuildChar[];
+export interface InfrastructureRoom {
+    chars: ResidentCharacters[];
     level: number;
 }
 
 /**
  * Arknights基建无人机
  */
-declare interface ArknightsBuildLabor {
+export interface ArknightsBuildLabor {
     value: number;
     maxValue: number;
     remainSecs: number;
@@ -128,13 +128,13 @@ declare interface ArknightsBuildLabor {
 /**
  * Arknights基建控制中枢
  */
-declare interface ArknightsBuildControl extends ArknightsBuildRoom {
+export interface InfrastructureControl extends InfrastructureRoom {
 }
 
 /**
  * Arknights基建宿舍
  */
-declare interface ArknightsBuildDormitory extends ArknightsBuildRoom {
+export interface InfrastructureDormitory extends InfrastructureRoom {
     comfort: number;
     slotId: string;
 }
@@ -142,7 +142,7 @@ declare interface ArknightsBuildDormitory extends ArknightsBuildRoom {
 /**
  * Arknights基建人力办公室
  */
-declare interface ArknightsBuildHire extends ArknightsBuildRoom {
+export interface InfrastructureHire extends InfrastructureRoom {
     refreshCount: number;
     completeWorkTime: number;
 }
@@ -150,7 +150,7 @@ declare interface ArknightsBuildHire extends ArknightsBuildRoom {
 /**
  * Arknights基建制造站
  */
-declare interface ArknightsBuildManufacture extends ArknightsBuildRoom {
+export interface InfrastructureManufacture extends InfrastructureRoom {
     complete: number;
     capacity: number;
     weight: number;
@@ -162,7 +162,7 @@ declare interface ArknightsBuildManufacture extends ArknightsBuildRoom {
 /**
  * Arknights基建会客室
  */
-declare interface ArknightsBuildMeeting extends ArknightsBuildRoom {
+export interface InfrastructureMeeting extends InfrastructureRoom {
     clue: {
         board: ('RHINE' | 'PENGUIN' | 'BLACKSTEEL' | 'URSUS' | 'KJERAG' | 'RHODES' | 'GLASGOW')[]
         own: number
@@ -175,52 +175,52 @@ declare interface ArknightsBuildMeeting extends ArknightsBuildRoom {
 /**
  * Arknights基建发电站
  */
-declare interface ArknightsBuildPower extends ArknightsBuildRoom {
+export interface InfrastructurePower extends InfrastructureRoom {
     slotId: string;
 }
 
 /**
  * Arknights基建贸易站
  */
-declare interface ArknightsBuildTrading extends ArknightsBuildRoom {
+export interface InfrastructureTrading extends InfrastructureRoom {
     stock: {
         instId: number
-        type: 'O_GOLD' | string
+        type: 'O_GOLD' | 'O_DIAMOND'
     }[];
     stockLimit: number;
-    strategy: 'O_GOLD' | string;
+    strategy: 'O_GOLD' | 'O_DIAMOND';
     slotId: string;
 }
 
 /**
  * Arknights基建训练室
  */
-declare interface ArknightsBuildTraining extends ArknightsBuildRoom {
+export interface InfrastructureTraining extends InfrastructureRoom {
     remainPoint: number;
     remainSecs: number;
-    trainee?: ArknightsBuildTraineeChar;
-    trainer?: ArknightsBuildChar;
+    trainee?: InfrastructureTrainee;
+    trainer?: ResidentCharacters;
 }
 
 /**
  * Arknights基建训练室受训干员
  */
-declare interface ArknightsBuildTraineeChar extends ArknightsBuildChar {
+export interface InfrastructureTrainee extends ResidentCharacters {
     targetSkill: number;
 }
 
 /**
  * Arknights剿灭作战信息
  */
-declare interface ArknightsCampaign {
-    records: ArknightsCampaignRecord;
-    reward: ArknightsCampaignReward;
+export interface Campaign {
+    records: CampaignRecord;
+    reward: CampaignReward;
 }
 
 /**
  * Arknights剿灭作战纪录
  */
-declare interface ArknightsCampaignRecord {
+export interface CampaignRecord {
     campaignId: string;
     maxKills: number;
 }
@@ -228,7 +228,7 @@ declare interface ArknightsCampaignRecord {
 /**
  * Arknights剿灭作战奖励
  */
-declare interface ArknightsCampaignReward {
+export interface CampaignReward {
     current: number;
     total: number;
 }
@@ -236,7 +236,7 @@ declare interface ArknightsCampaignReward {
 /**
  * Arknights剿灭作战地图信息
  */
-declare interface ArknightsCampaignLevel {
+export interface CampaignLevelInfo {
     id: string;
     name: string;
     campaignZoneId: string;
@@ -245,7 +245,7 @@ declare interface ArknightsCampaignLevel {
 /**
  * Arknights剿灭作战区域信息
  */
-declare interface ArknightsCampaignZone {
+export interface CampaignZoneInfo {
     id: string;
     name: string;
 }
@@ -253,7 +253,7 @@ declare interface ArknightsCampaignZone {
 /**
  * Arknights干员
  */
-declare interface ArknightsChar {
+export interface Character {
     charId: string;
     skinId: string;
     level: number;
@@ -277,7 +277,7 @@ declare interface ArknightsChar {
 /**
  * Arknights干员信息
  */
-declare interface ArknightsCharInfo {
+export interface CharacterInfo {
     id: string;
     name: string;
     nationId: string;
@@ -290,7 +290,7 @@ declare interface ArknightsCharInfo {
 /**
  * Arknights公开招募
  */
-declare interface ArknightsRecruit {
+export interface Recruit {
     startTs: number;
     finishTs: number;
     duration: number;
@@ -301,14 +301,14 @@ declare interface ArknightsRecruit {
 /**
  * Arknights集成战略
  */
-declare interface ArknightsRouge {
-    records: ArknightsRougeRecord[];
+export interface Rouge {
+    records: RougeRecord[];
 }
 
 /**
  * Arknights集成战略记录
  */
-declare interface ArknightsRougeRecord {
+export interface RougeRecord {
     rougeId: string;
     clearTime: number;
     relicCnt: number;
@@ -319,7 +319,7 @@ declare interface ArknightsRougeRecord {
 /**
  * Arknights集成战略主题信息
  */
-declare interface ArknightsRougeTheme {
+export interface RougeThemeInfo {
     id: string;
     name: string;
     sort: number;
@@ -328,7 +328,7 @@ declare interface ArknightsRougeTheme {
 /**
  * Arknights日常周常
  */
-declare interface ArknightsRouting {
+export interface Mission {
     daily: { current: number, total: number };
     weekly: { current: number, total: number };
 }
@@ -336,7 +336,7 @@ declare interface ArknightsRouting {
 /**
  * Arknights时装
  */
-declare interface ArknightsSkin {
+export interface Skin {
     id: string;
     ts: number;
 }
@@ -344,7 +344,7 @@ declare interface ArknightsSkin {
 /**
  * Arknights时装信息
  */
-declare interface ArknightsSkinInfo {
+export interface SkinInfo {
     avatarId: string;
     brandName: string;
     displayTagId: string;
@@ -357,7 +357,7 @@ declare interface ArknightsSkinInfo {
 /**
  * Arknights活动关卡信息
  */
-declare interface ArknightsStageLevel {
+export interface StageLevelInfo {
     id: string;
     code: string;
     name: string;
@@ -366,14 +366,14 @@ declare interface ArknightsStageLevel {
 /**
  * Arknights玩家状态
  */
-declare interface ArknightsPlayerStatus {
-    ap: ArknightsPlayerStatusAp;
-    avatar: ArknightsPlayerAvatar;
+export interface PlayerStatus {
+    ap: PlayerStatusAp;
+    avatar: PlayerAvatar;
     level: number;
     name: string;
     registerTs: number;
     resume: string;
-    secretary: ArknightsPlayerSecretary;
+    secretary: PlayerSecretary;
     mainStageProgress: string;
     uid: string;
 }
@@ -381,7 +381,7 @@ declare interface ArknightsPlayerStatus {
 /**
  * Arknights玩家理智信息
  */
-declare interface ArknightsPlayerStatusAp {
+export interface PlayerStatusAp {
     current: number;
     max: number;
     lastApAddTime: number;
@@ -391,7 +391,7 @@ declare interface ArknightsPlayerStatusAp {
 /**
  * Arknights玩家头像
  */
-declare interface ArknightsPlayerAvatar {
+export interface PlayerAvatar {
     type: string;
     id: string;
 }
@@ -399,7 +399,7 @@ declare interface ArknightsPlayerAvatar {
 /**
  * Arknights玩家助理干员
  */
-declare interface ArknightsPlayerSecretary {
+export interface PlayerSecretary {
     charId: string;
     skinId: string;
 }
@@ -407,16 +407,16 @@ declare interface ArknightsPlayerSecretary {
 /**
  * Arknights保全派驻信息
  */
-declare interface ArknightsTower {
-    records: ArknightsTowerRecord;
-    reward: ArknightsTowerReward;
+export interface Tower {
+    records: TowerRecord;
+    reward: TowerReward;
 }
 
 
 /**
  * Arknights保全派驻纪录
  */
-declare interface ArknightsTowerRecord {
+export interface TowerRecord {
     towerId: string;
     best: number;
     hasHard: boolean;
@@ -427,7 +427,7 @@ declare interface ArknightsTowerRecord {
 /**
  * Arknights保全派驻奖励
  */
-declare interface ArknightsTowerReward {
+export interface TowerReward {
     higherItem: { current: number, total: number };
     lowerItem: { current: number, total: number };
     termTs: number;
@@ -436,7 +436,7 @@ declare interface ArknightsTowerReward {
 /**
  * Arknights保全派驻区域信息
  */
-declare interface ArknightsTowerZone {
+export interface TowerZoneInfo {
     id: string;
     name: string;
     subName: string;
@@ -447,7 +447,7 @@ declare interface ArknightsTowerZone {
 /**
  * Arknights关卡区域信息
  */
-declare interface ArknightsZone {
+export interface ZoneInfo {
     id: string;
     name: string;
 }

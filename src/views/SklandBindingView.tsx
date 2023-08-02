@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import SklandBindingCard from '../components/SklandBindingCard';
+import SklandBindList from '../components/SklandBindList';
 import {useMountEffect} from 'primereact/hooks';
-import {queryBind} from '../skland-api/fn';
 import {useNavigate} from 'react-router-dom';
 import {LocalUser} from '../location';
+import {queryBind} from '../skland-api/user';
 import {readSessionStorage} from '../util/storage';
 import userStore from '../store/userStore';
 
@@ -15,7 +15,7 @@ const SklandBindingView = () => {
     useMountEffect(() => {
         const current = readSessionStorage<LocalUser>('CurrentLogin');
         if (current) {
-            userStore.setUser(current.user);
+            userStore.user = current.user;
             queryBind(current.cred).then(r => setBinding(r));
         } else {
             navigate('/');
@@ -23,7 +23,7 @@ const SklandBindingView = () => {
     });
 
     return (
-        <>{binding && binding.map((bind, index) => (<SklandBindingCard value={bind} key={index}/>))}</>
+        <>{binding && binding.map((bind, index) => (<SklandBindList value={bind} key={index}/>))}</>
     );
 };
 
