@@ -9,7 +9,7 @@ import {RoomHeader, RoomResidentChars} from './Room';
 
 const Training = ({model, method}: InfrastructureRoomProps<InfrastructureTraining>) => {
     const getSkillLevel = () => {
-        if (model.trainee) {
+        if (model.trainee && model.trainee.targetSkill != -1) {
             return method.getSkillLevel(model.trainee.charId, model.trainee.targetSkill);
         }
         return -1;
