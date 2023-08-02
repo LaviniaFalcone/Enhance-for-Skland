@@ -5,6 +5,7 @@ import {Divider} from 'primereact/divider';
 import {DatetimeFormat, datetimeFormat} from '../../util/time';
 import {Image} from 'primereact/image';
 import MiniProgressBar from '../MiniProgressBar';
+import {Player} from '../../skland-api/arknights';
 
 interface PersonalModuleProps {
     model: Player;
