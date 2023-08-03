@@ -2,6 +2,7 @@ import React from 'react';
 import {Divider} from 'primereact/divider';
 import {Button} from 'primereact/button';
 import {useNavigate} from 'react-router-dom';
+import {SklandBinding} from '../skland-api';
 
 interface SklandBindListProps {
     value: SklandBinding;
@@ -25,7 +26,8 @@ const SklandBindList = ({value}: SklandBindListProps) => {
                 {
                     value.bindingList.map((role, index) => (
                         <div className='flex align-items-center surface-0 border-round-lg gap-2 p-2' key={index}>
-                            <div className='text-xs surface-d border-round select-none tag'>
+                            <div className='flex center text-xs surface-d border-round select-none tag'
+                                 style={{width: '2.5rem'}}>
                                 {role.channelName.toUpperCase()}
                             </div>
                             <div>{role.nickName}</div>

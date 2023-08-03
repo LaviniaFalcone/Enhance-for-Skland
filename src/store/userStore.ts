@@ -1,4 +1,5 @@
 import {makeAutoObservable} from 'mobx';
+import {SklandUser} from '../skland-api';
 
 class UserStore {
     private _user?: SklandUser;

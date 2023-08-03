@@ -1,17 +1,59 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Divider} from 'primereact/divider';
 import {Avatar} from 'primereact/avatar';
-import {Order} from '@icon-park/react';
+import {Currency, Expenses, Income, Order, Share} from '@icon-park/react';
 import MiniProgressBar from '../../MiniProgressBar';
 import {RoomHeader, RoomResidentChars} from './Room';
 import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import {InfrastructureTrading} from '../../../skland-api/arknights';
+import {Button} from 'primereact/button';
+import {Dialog} from 'primereact/dialog';
+import {Image} from 'primereact/image';
+import {Carousel} from 'primereact/carousel';
+
+import MoneyIcon from '../../../assets/arknights/img/icon_money.png';
+import DiamondShardIcon from '../../../assets/arknights/img/icon_diamond_shard.png';
 
 
 const Trading = ({model, method}: InfrastructureRoomProps<InfrastructureTrading>) => {
+    const [showMore, setShowMore] = useState<boolean>(false);
+
+    const itemTemplate = (stock: any) => (
+        <div className='flex flex-column w-8rem flex-shrink-0 surface-0 border-round-lg m-2 select-none'>
+            <div className='flex align-items-center p-2' style={{color: 'deepskyblue'}}>
+                <div className='text-xs'>
+                    {stock.type == 'O_GOLD' ? '贵金属订单' : '源石订单'}
+                </div>
+                <div className='flex-grow-1'/>
+                <Currency/>
+            </div>
+            <Divider className='m-0' type='dashed'/>
+            <div className='flex flex-column p-2'>
+                <div className='flex text-xl'><Expenses/></div>
+                <div className='flex text-6xl justify-content-center'>
+                    {stock.delivery[0].count}
+                </div>
+                <div className='flex text-sm justify-content-end' style={{color: 'gold'}}>
+                    {stock.delivery[0].id == 3003 ? '赤金' : '源石碎片'}
+                </div>
+            </div>
+            <Divider className='m-0' type='dashed'/>
+            <div className='flex text-sm align-items-center p-2 gap-1'>
+                <Image width='24' src={stock.gain.type == 'GOLD' ? MoneyIcon : DiamondShardIcon}/>
+                <div>{stock.gain.count}</div>
+                <div className='flex-grow-1'/>
+                <Income className='text-xl'/>
+            </div>
+        </div>
+    );
+
     return (
         <>
-            <RoomHeader className='' title='贸易站' level={model.level}/>
+            <RoomHeader title='贸易站' level={model.level}>
+                <Button className='text-sm p-0' icon={<Share className='mr-1'/>} label='订单' text
+                        onClick={() => setShowMore(true)} disabled={model.stock.length == 0}
+                        style={{color: model.stock.length == 0 ? 'grey' : 'deepskyblue'}}/>
+            </RoomHeader>
             <Divider className='m-0'/>
             <div className='flex flex-column gap-2 p-2'>
                 <div className='flex h-2rem gap-2 select-none'>
@@ -34,6 +76,11 @@ const Trading = ({model, method}: InfrastructureRoomProps<InfrastructureTrading>
                 </div>
                 <RoomResidentChars chars={model.chars} max={3} method={method}/>
             </div>
+
+            <Dialog header='订单' onHide={() => setShowMore(false)} style={{width: '55rem'}}
+                    visible={showMore} resizable={false} draggable={false}>
+                <Carousel value={model.stock} itemTemplate={itemTemplate} numScroll={5} numVisible={5}/>
+            </Dialog>
         </>
     );
 };

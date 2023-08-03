@@ -13,6 +13,7 @@ import {readLocalStorage, removeLocalStorage, writeLocalStorage, writeSessionSto
 import {InputTextarea} from 'primereact/inputtextarea';
 import userStore from '../store/userStore';
 import {queryUser} from '../skland-api/user';
+import {SklandUser} from '../skland-api';
 
 const SklandCredLoginView = () => {
     const navigate = useNavigate();

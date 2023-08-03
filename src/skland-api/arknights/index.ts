@@ -151,6 +151,7 @@ export interface InfrastructureHire extends InfrastructureRoom {
  * Arknights基建制造站
  */
 export interface InfrastructureManufacture extends InfrastructureRoom {
+    speed: number;
     complete: number;
     capacity: number;
     weight: number;
@@ -184,6 +185,15 @@ export interface InfrastructurePower extends InfrastructureRoom {
  */
 export interface InfrastructureTrading extends InfrastructureRoom {
     stock: {
+        delivery: {
+            id: number
+            count: number
+        }[]
+        gain: {
+            id: number
+            count: number
+            type: 'GOLD' | 'DIAMOND'
+        }
         instId: number
         type: 'O_GOLD' | 'O_DIAMOND'
     }[];

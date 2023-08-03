@@ -1,16 +1,14 @@
 import React from 'react';
 import {Divider} from 'primereact/divider';
 import {Avatar} from 'primereact/avatar';
-import {Box} from '@icon-park/react';
+import {Box, Speed} from '@icon-park/react';
 import MiniProgressBar from '../../MiniProgressBar';
 import {RoomHeader, RoomResidentChars} from './Room';
 import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import {InfrastructureManufacture} from '../../../skland-api/arknights';
 
 const Manufacture = ({model, method}: InfrastructureRoomProps<InfrastructureManufacture>) => {
-    const formula: {
-        [id: string]: string
-    } = {
+    const formula: { [id: string]: string } = {
         1: '基础作战记录',
         2: '初级作战记录',
         3: '中级作战记录',
@@ -29,7 +27,12 @@ const Manufacture = ({model, method}: InfrastructureRoomProps<InfrastructureManu
 
     return (
         <>
-            <RoomHeader title='制造站' level={model.level}/>
+            <RoomHeader title='制造站' level={model.level}>
+                <div className='flex text-sm align-items-center gap-1' style={{color: 'gold'}}>
+                    <Speed/>
+                    <div>{model.speed * 100}%</div>
+                </div>
+            </RoomHeader>
             <Divider className='m-0'/>
             <div className='flex flex-column gap-2 p-2'>
                 <div className='flex h-2rem gap-2 select-none'>

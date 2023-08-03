@@ -1,10 +1,10 @@
-declare interface SklandResponseBody<T> {
+export interface SklandResponseBody<T> {
     code: number;
     data: T;
     message: string;
 }
 
-declare interface SklandUser {
+export interface SklandUser {
     user: {
         avatar: string
         id: string
@@ -12,14 +12,14 @@ declare interface SklandUser {
     };
 }
 
-declare interface SklandBinding {
+export interface SklandBinding {
     appCode: string;
     appName: string;
     bindingList: SklandBindRole[];
     defaultUid: string;
 }
 
-declare interface SklandBindRole {
+export interface SklandBindRole {
     uid: string;
     isOfficial: boolean;
     isDefault: boolean;

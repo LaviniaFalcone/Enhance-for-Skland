@@ -3,7 +3,7 @@ import {Divider} from 'primereact/divider';
 import {Rating} from 'primereact/rating';
 import {Avatar} from 'primereact/avatar';
 import MiniProgressBar from '../MiniProgressBar';
-import {Check, Hourglass, Sleep, Square} from '@icon-park/react';
+import {Check, Hourglass, Refresh, Sleep} from '@icon-park/react';
 import {Player, Recruit} from '../../skland-api/arknights';
 
 interface PublicRecruitmentModuleProps {
@@ -111,8 +111,9 @@ const PublicRecruitmentModule = ({model}: PublicRecruitmentModuleProps) => {
                 <div className='flex-grow-1'/>
                 <div className='flex gap-2'>
                     <div>联络次数</div>
-                    <Rating className='gap-1 text-primary' stars={3} cancel={false} readOnly
-                            value={building.hire.refreshCount} onIcon={<Square theme='filled'/>} offIcon={<Square/>}/>
+                    <Rating className='gap-1 text-primary' stars={3} cancel={false} value={building.hire.refreshCount}
+                            onIcon={<Refresh className='p-icon-spin'/>} offIcon={<Refresh className='text-300'/>}
+                            readOnly/>
                 </div>
             </div>
             <Divider className='m-0'/>

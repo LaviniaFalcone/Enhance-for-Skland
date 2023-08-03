@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {Player} from './index';
+import {SklandResponseBody} from '../index';
 
 export const queryArknightsRole = async (cred: string, uid: string | number) => {
     const config = {

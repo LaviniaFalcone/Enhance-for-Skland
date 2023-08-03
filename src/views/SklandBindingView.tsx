@@ -6,6 +6,7 @@ import {LocalUser} from '../location';
 import {queryBind} from '../skland-api/user';
 import {readSessionStorage} from '../util/storage';
 import userStore from '../store/userStore';
+import {SklandBinding} from '../skland-api';
 
 const SklandBindingView = () => {
     const navigate = useNavigate();

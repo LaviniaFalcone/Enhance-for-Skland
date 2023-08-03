@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {SklandBinding, SklandResponseBody, SklandUser} from './index';
 
 export const queryUser = async (cred: string) => {
     const config = {

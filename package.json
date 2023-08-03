@@ -11,6 +11,7 @@
   "dependencies": {
     "@icon-park/react": "^1.4.2",
     "axios": "^1.4.0",
+    "lightningcss": "^1.21.5",
     "mobx": "^6.10.0",
     "mobx-react": "^9.0.0",
     "primeflex": "^3.3.1",
