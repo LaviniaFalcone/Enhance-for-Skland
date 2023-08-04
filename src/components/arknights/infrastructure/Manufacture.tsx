@@ -30,7 +30,7 @@ const Manufacture = ({model, method}: InfrastructureRoomProps<InfrastructureManu
             <RoomHeader title='制造站' level={model.level}>
                 <div className='flex text-sm align-items-center gap-1' style={{color: 'gold'}}>
                     <Speed/>
-                    <div>{model.speed * 100}%</div>
+                    <div>{(model.speed * 100).toFixed(0)}%</div>
                 </div>
             </RoomHeader>
             <Divider className='m-0'/>
