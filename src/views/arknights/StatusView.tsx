@@ -10,12 +10,16 @@ import {LocalUser} from '../../location';
 import {readSessionStorage} from '../../util/storage';
 import {Player} from '../../skland-api/arknights';
 import userStore from '../../store/userStore';
+import {Toolbar} from 'primereact/toolbar';
+import {Button} from 'primereact/button';
+import SettingDialog from '../../components/arknights/SettingDialog';
 
 const StatusView = () => {
     const navigate = useNavigate();
     const {state: {uid, channel}} = useLocation();
 
     const [player, setPlayer] = useState<Player>();
+    const [showSetting, setShowSetting] = useState<boolean>(false);
 
     useMountEffect(() => {
         const current = readSessionStorage<LocalUser>('CurrentLogin');
@@ -27,11 +31,29 @@ const StatusView = () => {
         }
     });
 
+    const toolTip = (
+        <div className='flex text-sm surface-card border-round-xl center select-none'>
+            查询结果可能与游戏内数据存在亿点延迟，具体请以游戏内数据为准。
+        </div>
+    );
+
+    const buttons = (
+        <div className='flex gap-2'>
+            {/*<Button className='w-2rem h-2rem' icon={'pi pi-question'} outlined/>*/}
+            <Button className='w-2rem h-2rem' icon={'pi pi-cog'} onClick={() => setShowSetting(true)} outlined/>
+        </div>
+    );
+
     const body = () => {
-        if (!player) return <div>Loading</div>;
+        if (!player) return <div className='flex flex-grow-1 center'>Loading</div>;
 
         return (
             <div className='flex flex-column gap-2'>
+                <div className='grid'>
+                    <div className='col-12'>
+                        <Toolbar className='border-round-xl shadow-2' start={toolTip} end={buttons}/>
+                    </div>
+                </div>
                 <div className='grid'>
                     <div className='flex flex-column col-8 gap-3'>
                         <PersonalModule model={player} channel={channel}/>
@@ -50,7 +72,12 @@ const StatusView = () => {
         );
     };
 
-    return (<div className='flex flex-column gap-4'>{body()}</div>);
+    return (
+        <>
+            <div className='flex flex-column gap-4'>{body()}</div>
+            <SettingDialog header='设置' onHide={() => setShowSetting(false)} visible={showSetting}/>
+        </>
+    );
 };
 
 export default StatusView;

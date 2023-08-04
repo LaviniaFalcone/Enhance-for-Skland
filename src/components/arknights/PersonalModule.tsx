@@ -6,6 +6,7 @@ import {DatetimeFormat, datetimeFormat} from '../../util/time';
 import {Image} from 'primereact/image';
 import MiniProgressBar from '../MiniProgressBar';
 import {Player} from '../../skland-api/arknights';
+import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
 
 interface PersonalModuleProps {
     model: Player;
@@ -16,10 +17,11 @@ const PersonalModule = ({model, channel}: PersonalModuleProps) => {
     const {building, campaign, chars, charInfoMap, routine, status, skins, tower} = model;
 
     const getPlayerAp = () => {
-        return status.ap.max - Math.ceil((status.ap.completeRecoveryTime - new Date().getTime() / 1000) / 360);
+        const correctAp = status.ap.max - Math.ceil((status.ap.completeRecoveryTime - Date.now() / 1000) / 360);
+        return Math.max(status.ap.current, correctAp);
     };
 
-    const playerAp = getPlayerAp();
+    const playerAp = ExperimentOptions.ApCorrect ? getPlayerAp() : status.ap.current;
 
     const playerAccountInfo = (
         <>
@@ -61,7 +63,7 @@ const PersonalModule = ({model, channel}: PersonalModuleProps) => {
             <div className='flex text-xs text-600 select-none'>
                 <div>入职时间</div>
                 <div className='flex-grow-1'/>
-                <div>已苏醒 {Math.ceil((new Date().getTime() / 1000 - status.registerTs) / 86400)} 天</div>
+                <div>已苏醒 {Math.ceil((Date.now() / 1000 - status.registerTs) / 86400)} 天</div>
             </div>
             <div className='flex-grow-1'/>
             <div className='text-xl text-primary'>

@@ -77,8 +77,8 @@ const Trading = ({model, method}: InfrastructureRoomProps<InfrastructureTrading>
                 <RoomResidentChars chars={model.chars} max={3} method={method}/>
             </div>
 
-            <Dialog header='订单' onHide={() => setShowMore(false)} style={{width: '55rem'}}
-                    visible={showMore} resizable={false} draggable={false}>
+            <Dialog header='订单' headerClassName='select-none' style={{width: '55rem'}}
+                    onHide={() => setShowMore(false)} visible={showMore} resizable={false} draggable={false}>
                 <Carousel value={model.stock} itemTemplate={itemTemplate} numScroll={5} numVisible={5}/>
             </Dialog>
         </>

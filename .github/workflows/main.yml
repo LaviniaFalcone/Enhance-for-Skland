@@ -21,9 +21,7 @@ jobs:
           npm run build
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          BRANCH: dist
-          FOLDER: dist
-          REPOSITORY_NAME: LaviniaFalcone/Enhance-for-Skland
-          TARGET_FOLDER: /
+          branch: dist
+          folder: dist

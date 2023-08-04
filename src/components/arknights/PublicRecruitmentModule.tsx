@@ -60,7 +60,7 @@ const PublicRecruitmentModule = ({model}: PublicRecruitmentModuleProps) => {
                 case 3:
                     return 100;
                 case 2:
-                    const remaining = data.finishTs - new Date().getTime() / 1000;
+                    const remaining = data.finishTs - Date.now() / 1000;
                     if (remaining <= 0) return 100;
                     return (data.duration - remaining) / data.duration * 100;
             }

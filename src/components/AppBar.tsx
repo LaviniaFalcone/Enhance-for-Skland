@@ -26,7 +26,7 @@ const AppBar = () => {
     ];
 
     return (
-        <div className='sticky top-0 w-full z-5'>
+        <div className='w-full'>
             <div className='flex align-items-center h-4rem px-3 gap-3 surface-card select-none'>
                 <div className='flex align-items-center gap-1'>
                     <div className='flex flex-column'>
