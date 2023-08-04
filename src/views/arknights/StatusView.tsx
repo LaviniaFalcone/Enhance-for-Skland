@@ -13,6 +13,7 @@ import userStore from '../../store/userStore';
 import {Toolbar} from 'primereact/toolbar';
 import {Button} from 'primereact/button';
 import SettingDialog from '../../components/arknights/SettingDialog';
+import {Refresh, Setting} from '@icon-park/react';
 
 const StatusView = () => {
     const navigate = useNavigate();
@@ -39,8 +40,8 @@ const StatusView = () => {
 
     const buttons = (
         <div className='flex gap-2'>
-            {/*<Button className='w-2rem h-2rem' icon={'pi pi-question'} outlined/>*/}
-            <Button className='w-2rem h-2rem' icon={'pi pi-cog'} onClick={() => setShowSetting(true)} outlined/>
+            <Button className='w-2rem h-2rem' icon={<Refresh/>} onClick={() => location.reload()} outlined/>
+            <Button className='w-2rem h-2rem' icon={<Setting/>} onClick={() => setShowSetting(true)} outlined/>
         </div>
     );
 
