@@ -3,6 +3,7 @@ import {Divider} from 'primereact/divider';
 import {Button} from 'primereact/button';
 import {useNavigate} from 'react-router-dom';
 import {SklandBinding} from '../skland-api';
+import {ChevronRightIcon} from 'primereact/icons/chevronright';
 
 interface SklandBindListProps {
     value: SklandBinding;
@@ -37,7 +38,7 @@ const SklandBindList = ({value}: SklandBindListProps) => {
                                 <div className='text-xs bg-primary-900 border-round select-none tag'>默认角色</div>
                             }
                             <div className='flex-grow-1'/>
-                            <Button className='w-2rem h-2rem' icon='pi pi-sign-in' outlined
+                            <Button className='w-2rem h-2rem' icon={<ChevronRightIcon/>} outlined
                                     onClick={() => go(role.uid, role.channelMasterId)}/>
                         </div>
                     ))

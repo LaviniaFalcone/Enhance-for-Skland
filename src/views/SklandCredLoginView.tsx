@@ -14,6 +14,9 @@ import {InputTextarea} from 'primereact/inputtextarea';
 import userStore from '../store/userStore';
 import {queryUser} from '../skland-api/user';
 import {SklandUser} from '../skland-api';
+import {LinkTwo} from '@icon-park/react';
+import {AngleDoubleRightIcon} from 'primereact/icons/angledoubleright';
+import {ChevronRightIcon} from 'primereact/icons/chevronright';
 
 const SklandCredLoginView = () => {
     const navigate = useNavigate();
@@ -77,7 +80,7 @@ const SklandCredLoginView = () => {
                 <Tag severity='success'>方法一</Tag>
                 <div className='flex align-items-center gap-1'>
                     <div>1. 打开</div>
-                    <Button className='px-1 py-0' icon='pi pi-link' label='森空岛网页版' text
+                    <Button className='px-1 py-0' icon={<LinkTwo className='mr-2' size={20}/>} label='森空岛网页版' text
                             onClick={() => open('https://www.skland.com/')}/>
                     <div>并登录。</div>
                 </div>
@@ -98,7 +101,7 @@ const SklandCredLoginView = () => {
                 <Tag severity='success'>方法二</Tag>
                 <div className='flex align-items-center gap-1'>
                     <div>1. 打开</div>
-                    <Button className='px-1 py-0' icon='pi pi-link' label='森空岛网页版' text
+                    <Button className='px-1 py-0' icon={<LinkTwo className='mr-2' size={20}/>} label='森空岛网页版' text
                             onClick={() => open('https://www.skland.com/')}/>
                     <div>并登录。</div>
                 </div>
@@ -109,13 +112,13 @@ const SklandCredLoginView = () => {
                 </div>
                 <div className='flex flex-column gap-1'>
                     <div>3. 在控制台中输入以下内容并回车：</div>
-                    <InputTextarea value={command1} autoResize readOnly/>
+                    <InputTextarea value={command1} autoResize readOnly rows={1}/>
                 </div>
                 <div className='flex'>4. 控制台返回的值就是您的凭据。</div>
                 <Tag severity='success'>方法三</Tag>
                 <div className='flex align-items-center gap-1'>
                     <div>1. 打开</div>
-                    <Button className='px-1 py-0' icon='pi pi-link' label='森空岛网页版' text
+                    <Button className='px-1 py-0' icon={<LinkTwo className='mr-2' size={20}/>} label='森空岛网页版' text
                             onClick={() => open('https://www.skland.com/')}/>
                     <div>并登录。</div>
                 </div>
@@ -146,7 +149,7 @@ const SklandCredLoginView = () => {
                             <div className='p-inputgroup'>
                                 <InputText value={cred} onChange={e => setCred(e.target.value)} keyfilter={/\w/}
                                            type='password' maxLength={32} readOnly={checking}/>
-                                <Button icon='pi pi-arrow-right' loading={checking} onClick={checkCred}
+                                <Button icon={<AngleDoubleRightIcon/>} loading={checking} onClick={checkCred}
                                         disabled={disabled}/>
                             </div>
                         </>
@@ -161,7 +164,7 @@ const SklandCredLoginView = () => {
                                 </div>
                                 <div className='text-lg'>{user.user.nickname}</div>
                                 <div className='flex-grow-1'/>
-                                <Button className='w-2rem h-2rem' severity='success' icon='pi pi-sign-in'
+                                <Button className='w-2rem h-2rem' severity='success' icon={<ChevronRightIcon/>}
                                         onClick={() => login(cred, user)}/>
                             </div>
                             <div className='flex justify-content-end'>
@@ -180,7 +183,7 @@ const SklandCredLoginView = () => {
                                 </div>
                                 <div className='text-lg'>{lastLogin.user.user.nickname}</div>
                                 <div className='flex-grow-1'/>
-                                <Button className='w-2rem h-2rem' severity='success' icon='pi pi-sign-in'
+                                <Button className='w-2rem h-2rem' severity='success' icon={<ChevronRightIcon/>}
                                         onClick={() => login(lastLogin.cred, lastLogin.user)}/>
                             </div>
                             <div className='flex justify-content-end'>

@@ -8,6 +8,7 @@ import {Button} from 'primereact/button';
 import {removeSessionStorage} from '../util/storage';
 import {Tag} from 'primereact/tag';
 import {useNavigate} from 'react-router-dom';
+import {Logout, Peoples} from '@icon-park/react';
 
 const AppBar = () => {
     const navigate = useNavigate();
@@ -20,9 +21,9 @@ const AppBar = () => {
     };
 
     const options = [
-        {label: '切换角色', icon: 'pi pi-users', command: () => navigate('/binding')},
+        {label: '切换角色', icon: <Peoples className='mr-2'/>, command: () => navigate('/binding')},
         {separator: true},
-        {label: '退出登录', icon: 'pi pi-sign-out', command: logout}
+        {label: '退出登录', icon: <Logout className='mr-2'/>, command: logout}
     ];
 
     return (
@@ -47,7 +48,7 @@ const AppBar = () => {
                         </div>
                     </Button>
                 }
-                <Menu ref={menu} className='mt-2' model={options} popup/>
+                <Menu ref={menu} className='mt-3' model={options} popup/>
             </div>
             <Divider className='m-0'/>
         </div>
