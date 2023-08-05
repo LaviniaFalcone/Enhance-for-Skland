@@ -831,11 +831,6 @@ primeflex@^3.3.1:
   resolved "https://registry.npmmirror.com/primeflex/-/primeflex-3.3.1.tgz#361dddf6eb5db50d733e4cddd4b6e376a3d7bd68"
   integrity sha512-zaOq3YvcOYytbAmKv3zYc+0VNS9Wg5d37dfxZnveKBFPr7vEIwfV5ydrpiouTft8MVW6qNjfkaQphHSnvgQbpQ==
 
-primeicons@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npmmirror.com/primeicons/-/primeicons-6.0.1.tgz#431fa7c79825934eefd62087d8e1faa6a9e376ad"
-  integrity sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==
-
 primereact@^9.6.0:
   version "9.6.0"
   resolved "https://registry.npmmirror.com/primereact/-/primereact-9.6.0.tgz#79dd3413f935da70663ec16584013c5b17c077f7"

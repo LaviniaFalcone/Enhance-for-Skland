@@ -16,9 +16,14 @@ export default defineConfig({
         sourcemap: false,
         rollupOptions: {
             output: {
+                assetFileNames: 'static/[ext]/[hash].[ext]',
                 chunkFileNames: 'static/js/[hash].js',
                 entryFileNames: 'static/js/[hash].js',
-                assetFileNames: 'static/[ext]/[hash].[ext]'
+                manualChunks: (id: any): string => {
+                    if (id.includes('node_modules')) {
+                        return id.split('node_modules/')[1].split('/')[0];
+                    }
+                }
             }
         },
         minify: 'terser',
