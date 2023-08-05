@@ -10,7 +10,7 @@ interface PublicRecruitmentModuleProps {
     model: Player;
 }
 
-const recruitTag: { [id: number]: string } = {
+const tags: { [id: number]: string } = {
     1: '近卫干员',
     2: '狙击干员',
     3: '重装干员',
@@ -21,7 +21,9 @@ const recruitTag: { [id: number]: string } = {
     8: '先锋干员',
     9: '近战位',
     10: '远程位',
+    // 11: '支援机械',
     12: '控场',
+    13: '爆发',
     15: '治疗',
     16: '支援',
     17: '新手',
@@ -34,12 +36,14 @@ const recruitTag: { [id: number]: string } = {
     24: '削弱',
     25: '快速复活',
     26: '位移'
+    // 27: '召唤'
 };
 
 const getTagColor = (tagId: number) => {
     switch (tagId) {
         case 7:
         case 12:
+        case 13:
         case 16:
         case 24:
         case 25:
@@ -90,7 +94,7 @@ const PublicRecruitmentModule = ({model}: PublicRecruitmentModuleProps) => {
                         {data.selectTags.map(({tagId}) => (
                             <div className='text-xs surface-d border-round overflow-hidden' key={tagId}>
                                 <div className='tag' style={{background: getTagColor(tagId)}}>
-                                    {recruitTag[tagId] || `Tag_${tagId}`}
+                                    {tags[tagId] || `Tag_${tagId}`}
                                 </div>
                             </div>
                         ))}
