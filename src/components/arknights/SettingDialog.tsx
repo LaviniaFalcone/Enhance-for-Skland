@@ -18,6 +18,13 @@ const SettingDialog = (props: SettingDialogProps) => {
             label: '理智修正',
             type: OptionItemType.SWITCH,
             value: ExperimentOptions
+        },
+        {
+            detail: '通过算法对无人机数量进行重新计算，通常情况下它能够使网页中显示的理智尽可能的接近游戏中的实际值，由于受到基建技能影响，修正值可能低于实际值。默认值：false',
+            key: 'DroneCorrect',
+            label: '无人机数量修正',
+            type: OptionItemType.SWITCH,
+            value: ExperimentOptions
         }
     ];
 

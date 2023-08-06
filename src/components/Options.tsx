@@ -32,15 +32,18 @@ const Options = (props: OptionsProps) => {
         }
     };
 
-    const option = (item: OptionItem) => (
-        <div className='flex flex-column gap-1' key={item.key}>
-            <div className='flex align-items-center'>
-                <div>{item.label}</div>
-                <div className='flex-grow-1'/>
-                <div>{optionValue(item)}</div>
+    const option = (item: OptionItem, index: number) => (
+        <>
+            {index !== 0 && <Divider className='mt-2' type='dashed'/>}
+            <div className='flex flex-column gap-1' key={item.key}>
+                <div className='flex align-items-center'>
+                    <div>{item.label}</div>
+                    <div className='flex-grow-1'/>
+                    <div>{optionValue(item)}</div>
+                </div>
+                {item.detail && <div className='text-sm text-300'>{item.detail}</div>}
             </div>
-            {item.detail && <div className='text-sm text-300'>{item.detail}</div>}
-        </div>
+        </>
     );
 
     return (
@@ -51,7 +54,7 @@ const Options = (props: OptionsProps) => {
             </div>
             <Divider className='m-0'/>
             <div className='flex flex-column gap-2 p-3'>
-                {props.value?.map(item => option(item))}
+                {props.value?.map((item, index) => option(item, index))}
             </div>
         </div>
     );

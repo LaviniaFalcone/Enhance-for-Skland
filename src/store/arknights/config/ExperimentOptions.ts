@@ -2,7 +2,9 @@ import {makeAutoObservable} from 'mobx';
 import {readLocalStorage, writeLocalStorage} from '../../../util/storage';
 
 class ExperimentOptions {
-    private readonly _ApCorrectKey: string = 'Experiment.ApCorrect';
+    private readonly _key = 'Experiment';
+    private readonly _ApCorrectKey = `${this._key}.ApCorrect`;
+    private readonly _DroneCorrectKey = `${this._key}.DroneCorrect`;
 
     constructor() {
         makeAutoObservable(this);
@@ -17,6 +19,17 @@ class ExperimentOptions {
     set ApCorrect(value: boolean) {
         writeLocalStorage(this._ApCorrectKey, value);
         this._ApCorrect = value;
+    }
+
+    private _DroneCorrect: boolean = readLocalStorage<boolean>(this._DroneCorrectKey) || false;
+
+    get DroneCorrect(): boolean {
+        return this._DroneCorrect;
+    }
+
+    set DroneCorrect(value: boolean) {
+        writeLocalStorage(this._DroneCorrectKey, value);
+        this._DroneCorrect = value;
     }
 }
 

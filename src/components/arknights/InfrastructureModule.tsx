@@ -14,6 +14,7 @@ import Dormitory from './infrastructure/Dormitory';
 import Hire from './infrastructure/Hire';
 import Meeting from './infrastructure/Meeting';
 import Training from './infrastructure/Training';
+import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
 
 interface InfrastructureModuleProps {
     model: Player;
@@ -60,6 +61,10 @@ const InfrastructureModule = ({model}: InfrastructureModuleProps) => {
         if (trading) return <Trading model={trading} method={method}/>;
     };
 
+    const droneCount = ExperimentOptions.DroneCorrect ?
+        Math.min(Math.round((Date.now() / 1000 - labor.lastUpdateTime) / 360 + labor.value), labor.maxValue) :
+        labor.value;
+
     return (
         <div className='flex flex-column surface-card border-round-xl'>
             <div className='flex align-items-baseline gap-2 select-none p-3'>
@@ -69,58 +74,32 @@ const InfrastructureModule = ({model}: InfrastructureModuleProps) => {
                 <div className='flex flex-column w-6rem'>
                     <div className='flex align-items-baseline gap-1'>
                         <Drone className='text-purple-300'/>
-                        <div className='text-purple-300'>{labor.value}</div>
+                        <div className='text-purple-300'>{droneCount}</div>
                         <div className='text-xs'>/</div>
                         <div className='text-xs'>{labor.maxValue}</div>
                     </div>
-                    <MiniProgressBar value={labor.value / labor.maxValue * 100} color='var(--purple-300)'/>
+                    <MiniProgressBar value={droneCount / labor.maxValue * 100} color='var(--purple-300)'/>
                 </div>
             </div>
             <Divider className='m-0'/>
-            <div className='grid grid-nogutter flex-column gap-2 px-3 pt-3 pb-2'>
-                <div className='grid'>
-                    <Room className='col-12'>
-                        <Control model={control} method={method}/>
-                    </Room>
-                </div>
-                <div className='grid'>
-                    <Room className='col-4' children={findRoom('slot_24')}/>
-                    <Room className='col-4' children={findRoom('slot_25')}/>
-                    <Room className='col-4' children={findRoom('slot_26')}/>
-                </div>
-                <div className='grid'>
-                    <Room className='col-4' children={findRoom('slot_14')}/>
-                    <Room className='col-4' children={findRoom('slot_15')}/>
-                    <Room className='col-4' children={findRoom('slot_16')}/>
-                </div>
-                <div className='grid'>
-                    <Room className='col-4' children={findRoom('slot_5')}/>
-                    <Room className='col-4' children={findRoom('slot_6')}/>
-                    <Room className='col-4' children={findRoom('slot_7')}/>
-                </div>
-                <div className='grid'>
-                    <Room className='col-4'>
-                        <Meeting model={meeting} method={method}/>
-                    </Room>
-                    <Room className='col-4'>
-                        <Hire model={hire} method={method}/>
-                    </Room>
-                    <Room className='col-4'>
-                        <Training model={training} method={method}/>
-                    </Room>
-                </div>
-                <div className='grid'>
-                    <Room className='col-12' children={findRoom('slot_28')}/>
-                </div>
-                <div className='grid'>
-                    <Room className='col-12' children={findRoom('slot_20')}/>
-                </div>
-                <div className='grid'>
-                    <Room className='col-12' children={findRoom('slot_9')}/>
-                </div>
-                <div className='grid'>
-                    <Room className='col-12' children={findRoom('slot_3')}/>
-                </div>
+            <div className='grid flex-wrap p-3'>
+                <Room className='col-12'><Control model={control} method={method}/></Room>
+                <Room className='col-4' children={findRoom('slot_24')}/>
+                <Room className='col-4' children={findRoom('slot_25')}/>
+                <Room className='col-4' children={findRoom('slot_26')}/>
+                <Room className='col-4' children={findRoom('slot_14')}/>
+                <Room className='col-4' children={findRoom('slot_15')}/>
+                <Room className='col-4' children={findRoom('slot_16')}/>
+                <Room className='col-4' children={findRoom('slot_5')}/>
+                <Room className='col-4' children={findRoom('slot_6')}/>
+                <Room className='col-4' children={findRoom('slot_7')}/>
+                <Room className='col-4'><Meeting model={meeting} method={method}/></Room>
+                <Room className='col-4'><Hire model={hire} method={method}/></Room>
+                <Room className='col-4'><Training model={training} method={method}/></Room>
+                <Room className='col-12' children={findRoom('slot_28')}/>
+                <Room className='col-12' children={findRoom('slot_20')}/>
+                <Room className='col-12' children={findRoom('slot_9')}/>
+                <Room className='col-12' children={findRoom('slot_3')}/>
             </div>
         </div>
     );
