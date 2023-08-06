@@ -7,6 +7,9 @@
 
 ## 森空岛（非官方）游戏实时状态查询工具
 
+> ### Arknights Preview
+> ![](/.github/preview/arknights.png)
+
 ### 安装
 在开始之前，请运行以下命令安装依赖:
 ```shell
