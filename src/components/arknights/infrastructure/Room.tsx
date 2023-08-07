@@ -51,12 +51,6 @@ export const RoomHeader = ({title, level, children, className}: RoomHeaderProps)
 export const RoomResidentChars = ({chars, max, method}: RoomResidentCharsProps) => {
     if (!chars) chars = [];
 
-    const getApColor = (ap: number) => {
-        if (ap <= 0) return 'tomato';
-        if (ap <= 2160000) return 'orange';
-        if (ap == 8640000) return 'lightgreen';
-    };
-
     if (chars.length < max) {
         for (let i = chars.length; i < max; i++) {
             chars.push({charId: `empty_${i}`, ap: 0, index: -1});
@@ -75,7 +69,7 @@ export const RoomResidentChars = ({chars, max, method}: RoomResidentCharsProps) 
                             {char.index != -1 ? method.getName(char.charId) : '虚位以待'}
                         </div>
                         <MiniProgressBar value={char.ap <= 0 && char.index != -1 ? 100 : char.ap / 86400}
-                                         color={getApColor(char.ap)}/>
+                                         color={`hsl(${char.ap / 86400}, 100%, 64%)`}/>
                     </div>
                 </div>
             ))}
