@@ -1,7 +1,7 @@
 {
-  "name": "arknight-info",
+  "name": "enhance-for-skland",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,6 @@
   "dependencies": {
     "@icon-park/react": "^1.4.2",
     "axios": "^1.4.0",
-    "lightningcss": "^1.21.5",
     "mobx": "^6.10.0",
     "mobx-react": "^9.0.0",
     "primeflex": "^3.3.1",
@@ -19,13 +18,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
-    "terser": "^5.19.2",
     "vite-plugin-compression": "^0.5.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "lightningcss": "^1.21.5",
+    "terser": "^5.19.2",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
   }
