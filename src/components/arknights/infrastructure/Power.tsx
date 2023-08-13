@@ -1,11 +1,10 @@
-import React from 'react';
-import {Avatar} from 'primereact/avatar';
-import MiniProgressBar from '../../MiniProgressBar';
 import {BatteryCharge, Lightning} from '@icon-park/react';
+import {Avatar} from 'primereact/avatar';
 import {Divider} from 'primereact/divider';
-import {RoomHeader, RoomResidentChars} from './Room';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import {InfrastructurePower} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
+import MiniProgressBar from '../../MiniProgressBar';
+import {RoomHeader, RoomResidentChars} from './Room';
 
 const Power = ({model, method}: InfrastructureRoomProps<InfrastructurePower>) => {
     const generation = 2 ** (model.level - 1) * 60 + (2 ** (model.level - 1) - 1) * 10;

@@ -1,19 +1,17 @@
-import React from 'react';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
 import {Image} from 'primereact/image';
+import Evolve0 from '../../assets/arknights/img/icon_evolve_0.png';
+import Evolve1 from '../../assets/arknights/img/icon_evolve_1.png';
+import Evolve2 from '../../assets/arknights/img/icon_evolve_2.png';
+import {AssistCharacter, Player} from '../../skland-api/arknights';
 import {
     getEquipTypeIconUrl,
     getEquipTypeShiningUrl,
     getSkillIconUrl,
     getSkinAvatarUrl
 } from '../../skland-api/arknights/character';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
 import MiniProgressBar from '../MiniProgressBar';
-
-import Evolve0 from '../../assets/arknights/img/icon_evolve_0.png';
-import Evolve1 from '../../assets/arknights/img/icon_evolve_1.png';
-import Evolve2 from '../../assets/arknights/img/icon_evolve_2.png';
-import {AssistCharacter, Player} from '../../skland-api/arknights';
 
 const evolveIcon = [Evolve0, Evolve1, Evolve2];
 

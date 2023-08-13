@@ -1,12 +1,12 @@
-import React, {Fragment} from 'react';
 import {Avatar} from 'primereact/avatar';
-import {getSkinAvatarUrl} from '../../skland-api/arknights/character';
 import {Divider} from 'primereact/divider';
-import {DatetimeFormat, datetimeFormat} from '../../util/time';
 import {Image} from 'primereact/image';
-import MiniProgressBar from '../MiniProgressBar';
+import React, {Fragment} from 'react';
 import {Player} from '../../skland-api/arknights';
+import {getSkinAvatarUrl} from '../../skland-api/arknights/character';
 import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
+import {DatetimeFormat, datetimeFormat} from '../../util/time';
+import MiniProgressBar from '../MiniProgressBar';
 
 interface PersonalModuleProps {
     model: Player;

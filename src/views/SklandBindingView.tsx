@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import SklandBindList from '../components/SklandBindList';
 import {useMountEffect} from 'primereact/hooks';
+import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import SklandBindList from '../components/SklandBindList';
 import {LocalUser} from '../location';
-import {queryBind} from '../skland-api/user';
-import {readSessionStorage} from '../util/storage';
-import userStore from '../store/userStore';
 import {SklandBinding} from '../skland-api';
+import {queryBind} from '../skland-api/user';
+import userStore from '../store/userStore';
+import {readSessionStorage} from '../util/storage';
 
 const SklandBindingView = () => {
     const navigate = useNavigate();

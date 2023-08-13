@@ -1,8 +1,7 @@
-import React from 'react';
 import {Sleaves} from '@icon-park/react';
 import {Divider} from 'primereact/divider';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import {InfrastructureDormitory} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import {RoomHeader, RoomResidentChars} from './Room';
 
 const Dormitory = ({model, method}: InfrastructureRoomProps<InfrastructureDormitory>) => {

@@ -1,11 +1,10 @@
-import React from 'react';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
 import {Box, Speed} from '@icon-park/react';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
+import {InfrastructureManufacture} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import MiniProgressBar from '../../MiniProgressBar';
 import {RoomHeader, RoomResidentChars} from './Room';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
-import {InfrastructureManufacture} from '../../../skland-api/arknights';
 
 const Manufacture = ({model, method}: InfrastructureRoomProps<InfrastructureManufacture>) => {
     const formula: { [id: string]: string } = {

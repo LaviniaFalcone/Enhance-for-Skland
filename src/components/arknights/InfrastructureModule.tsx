@@ -1,20 +1,19 @@
-import React from 'react';
-import {Divider} from 'primereact/divider';
-import MiniProgressBar from '../MiniProgressBar';
-import {getSkillIconUrl, getSkinAvatarUrl} from '../../skland-api/arknights/character';
 import {Drone} from '@icon-park/react';
-import Room from './infrastructure/Room';
+import {Divider} from 'primereact/divider';
 import {Player} from '../../skland-api/arknights';
-import Control from './infrastructure/Control';
-import Manufacture from './infrastructure/Manufacture';
-import Trading from './infrastructure/Trading';
-import Power from './infrastructure/Power';
+import {getSkillIconUrl, getSkinAvatarUrl} from '../../skland-api/arknights/character';
 import {InfrastructureMethod} from '../../skland-api/arknights/infrastructure';
+import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
+import MiniProgressBar from '../MiniProgressBar';
+import Control from './infrastructure/Control';
 import Dormitory from './infrastructure/Dormitory';
 import Hire from './infrastructure/Hire';
+import Manufacture from './infrastructure/Manufacture';
 import Meeting from './infrastructure/Meeting';
+import Power from './infrastructure/Power';
+import Room from './infrastructure/Room';
+import Trading from './infrastructure/Trading';
 import Training from './infrastructure/Training';
-import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
 
 interface InfrastructureModuleProps {
     model: Player;

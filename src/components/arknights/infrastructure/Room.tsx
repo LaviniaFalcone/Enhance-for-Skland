@@ -1,9 +1,9 @@
-import React from 'react';
-import {Divider} from 'primereact/divider';
-import MiniProgressBar from '../../MiniProgressBar';
-import {ResidentCharacters} from '../../../skland-api/arknights';
-import {Avatar} from 'primereact/avatar';
 import {Chess} from '@icon-park/react';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
+import React from 'react';
+import {ResidentCharacters} from '../../../skland-api/arknights';
+import MiniProgressBar from '../../MiniProgressBar';
 
 interface RoomProps {
     className?: string;

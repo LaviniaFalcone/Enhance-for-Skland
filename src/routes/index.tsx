@@ -1,8 +1,8 @@
-import {RouteObject} from 'react-router-dom';
 import React from 'react';
-import SklandCredLoginView from '../views/SklandCredLoginView';
-import SklandBindingView from '../views/SklandBindingView';
+import {RouteObject} from 'react-router-dom';
 import StatusView from '../views/arknights/StatusView';
+import SklandBindingView from '../views/SklandBindingView';
+import SklandCredLoginView from '../views/SklandCredLoginView';
 
 const route = (path: string, element: React.ReactNode, children?: RouteObject[]): RouteObject => ({
     path,

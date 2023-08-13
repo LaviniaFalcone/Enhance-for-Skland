@@ -1,19 +1,19 @@
-import React, {useState} from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
-import {useMountEffect} from 'primereact/hooks';
-import {queryArknightsRole} from '../../skland-api/arknights/user';
-import PersonalModule from '../../components/arknights/PersonalModule';
-import AssistCharacterModule from '../../components/arknights/AssistCharModule';
-import PublicRecruitmentModule from '../../components/arknights/PublicRecruitmentModule';
-import InfrastructureModule from '../../components/arknights/InfrastructureModule';
-import {LocalUser} from '../../location';
-import {readSessionStorage} from '../../util/storage';
-import {Player} from '../../skland-api/arknights';
-import userStore from '../../store/userStore';
-import {Toolbar} from 'primereact/toolbar';
-import {Button} from 'primereact/button';
-import SettingDialog from '../../components/arknights/SettingDialog';
 import {Refresh, Setting} from '@icon-park/react';
+import {Button} from 'primereact/button';
+import {useMountEffect} from 'primereact/hooks';
+import {Toolbar} from 'primereact/toolbar';
+import {useState} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
+import AssistCharacterModule from '../../components/arknights/AssistCharModule';
+import InfrastructureModule from '../../components/arknights/InfrastructureModule';
+import PersonalModule from '../../components/arknights/PersonalModule';
+import PublicRecruitmentModule from '../../components/arknights/PublicRecruitmentModule';
+import SettingDialog from '../../components/arknights/SettingDialog';
+import {LocalUser} from '../../location';
+import {Player} from '../../skland-api/arknights';
+import {queryArknightsRole} from '../../skland-api/arknights/user';
+import userStore from '../../store/userStore';
+import {readSessionStorage} from '../../util/storage';
 
 const StatusView = () => {
     const navigate = useNavigate();

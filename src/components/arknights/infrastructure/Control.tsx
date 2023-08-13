@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
 import {Components} from '@icon-park/react';
-import {RoomHeader, RoomResidentChars} from './Room';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
+import {Fragment} from 'react';
 import {InfrastructureControl} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
+import {RoomHeader, RoomResidentChars} from './Room';
 
 const Control = ({model, method}: InfrastructureRoomProps<InfrastructureControl>) => {
     return (

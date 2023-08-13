@@ -1,14 +1,14 @@
-import React, {useRef} from 'react';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
-import {observer} from 'mobx-react-lite';
-import userStore from '../store/userStore';
-import {Menu} from 'primereact/menu';
-import {Button} from 'primereact/button';
-import {removeSessionStorage} from '../util/storage';
-import {Tag} from 'primereact/tag';
-import {useNavigate} from 'react-router-dom';
 import {Logout, Peoples} from '@icon-park/react';
+import {observer} from 'mobx-react-lite';
+import {Avatar} from 'primereact/avatar';
+import {Button} from 'primereact/button';
+import {Divider} from 'primereact/divider';
+import {Menu} from 'primereact/menu';
+import {Tag} from 'primereact/tag';
+import {useRef} from 'react';
+import {useNavigate} from 'react-router-dom';
+import userStore from '../store/userStore';
+import {removeSessionStorage} from '../util/storage';
 
 const AppBar = () => {
     const navigate = useNavigate();

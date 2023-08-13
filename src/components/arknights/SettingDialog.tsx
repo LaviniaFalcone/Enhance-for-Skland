@@ -1,8 +1,8 @@
-import React from 'react';
-import {Dialog} from 'primereact/dialog';
 import {Experiment} from '@icon-park/react';
-import Options, {OptionItem, OptionItemType} from '../Options';
+import {Dialog} from 'primereact/dialog';
+import React from 'react';
 import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
+import Options, {OptionItem, OptionItemType} from '../Options';
 
 interface SettingDialogProps {
     header?: React.ReactNode;

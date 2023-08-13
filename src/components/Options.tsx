@@ -1,9 +1,9 @@
-import React from 'react';
 import {Setting} from '@icon-park/react';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
-import {InputSwitch} from 'primereact/inputswitch';
 import {observer} from 'mobx-react-lite';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
+import {InputSwitch} from 'primereact/inputswitch';
+import React from 'react';
 
 interface OptionsProps {
     header: string;

@@ -1,9 +1,8 @@
-import React from 'react';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
-import {InfrastructureTraining} from '../../../skland-api/arknights';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
 import {Dumbbell} from '@icon-park/react';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
+import {InfrastructureTraining} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
 import MiniProgressBar from '../../MiniProgressBar';
 import {RoomHeader, RoomResidentChars} from './Room';
 

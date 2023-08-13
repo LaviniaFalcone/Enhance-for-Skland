@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
 import {Currency, Expenses, Income, Order, Share} from '@icon-park/react';
-import MiniProgressBar from '../../MiniProgressBar';
-import {RoomHeader, RoomResidentChars} from './Room';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
-import {InfrastructureTrading} from '../../../skland-api/arknights';
+import {Avatar} from 'primereact/avatar';
 import {Button} from 'primereact/button';
-import {Dialog} from 'primereact/dialog';
-import {Image} from 'primereact/image';
 import {Carousel} from 'primereact/carousel';
+import {Dialog} from 'primereact/dialog';
+import {Divider} from 'primereact/divider';
+import {Image} from 'primereact/image';
+import {useState} from 'react';
+import DiamondShardIcon from '../../../assets/arknights/img/icon_diamond_shard.png';
 
 import MoneyIcon from '../../../assets/arknights/img/icon_money.png';
-import DiamondShardIcon from '../../../assets/arknights/img/icon_diamond_shard.png';
+import {InfrastructureTrading} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
+import MiniProgressBar from '../../MiniProgressBar';
+import {RoomHeader, RoomResidentChars} from './Room';
 
 
 const Trading = ({model, method}: InfrastructureRoomProps<InfrastructureTrading>) => {

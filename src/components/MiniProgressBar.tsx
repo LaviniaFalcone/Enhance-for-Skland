@@ -1,4 +1,3 @@
-import React from 'react';
 import {ProgressBar} from 'primereact/progressbar';
 
 interface MiniProgressBar {

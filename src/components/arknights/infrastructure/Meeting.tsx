@@ -1,10 +1,9 @@
-import React from 'react';
-import {Divider} from 'primereact/divider';
-import {Avatar} from 'primereact/avatar';
 import {CircleFiveLine, FiveKey, FourKey, Notes, OneKey, SevenKey, SixKey, ThreeKey, TwoKey} from '@icon-park/react';
-import MiniProgressBar from '../../MiniProgressBar';
-import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
+import {Avatar} from 'primereact/avatar';
+import {Divider} from 'primereact/divider';
 import {InfrastructureMeeting} from '../../../skland-api/arknights';
+import {InfrastructureRoomProps} from '../../../skland-api/arknights/infrastructure';
+import MiniProgressBar from '../../MiniProgressBar';
 import {RoomHeader, RoomResidentChars} from './Room';
 
 const Meeting = ({model, method}: InfrastructureRoomProps<InfrastructureMeeting>) => {

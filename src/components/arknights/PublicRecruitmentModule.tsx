@@ -2,7 +2,6 @@ import {Check, Hourglass, Refresh, Sleep} from '@icon-park/react';
 import {Avatar} from 'primereact/avatar';
 import {Divider} from 'primereact/divider';
 import {Rating} from 'primereact/rating';
-import React from 'react';
 import {Player, Recruit} from '../../skland-api/arknights';
 import MiniProgressBar from '../MiniProgressBar';
 

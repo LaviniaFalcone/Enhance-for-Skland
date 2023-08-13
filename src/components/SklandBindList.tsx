@@ -1,9 +1,8 @@
-import React from 'react';
-import {Divider} from 'primereact/divider';
 import {Button} from 'primereact/button';
+import {Divider} from 'primereact/divider';
+import {ChevronRightIcon} from 'primereact/icons/chevronright';
 import {useNavigate} from 'react-router-dom';
 import {SklandBinding} from '../skland-api';
-import {ChevronRightIcon} from 'primereact/icons/chevronright';
 
 interface SklandBindListProps {
     value: SklandBinding;
