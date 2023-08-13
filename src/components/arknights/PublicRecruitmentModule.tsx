@@ -1,10 +1,10 @@
-import React from 'react';
+import {Check, Hourglass, Refresh, Sleep} from '@icon-park/react';
+import {Avatar} from 'primereact/avatar';
 import {Divider} from 'primereact/divider';
 import {Rating} from 'primereact/rating';
-import {Avatar} from 'primereact/avatar';
-import MiniProgressBar from '../MiniProgressBar';
-import {Check, Hourglass, Refresh, Sleep} from '@icon-park/react';
+import React from 'react';
 import {Player, Recruit} from '../../skland-api/arknights';
+import MiniProgressBar from '../MiniProgressBar';
 
 interface PublicRecruitmentModuleProps {
     model: Player;
@@ -21,10 +21,10 @@ const tags: { [id: number]: string } = {
     8: '先锋干员',
     9: '近战位',
     10: '远程位',
-    // 11: '高级资深干员?',
+    11: '高级资深干员',
     12: '控场',
     13: '爆发',
-    // 14: '资深干员?',
+    14: '资深干员',
     15: '治疗',
     16: '支援',
     17: '新手',
@@ -37,7 +37,7 @@ const tags: { [id: number]: string } = {
     24: '削弱',
     25: '快速复活',
     26: '位移',
-    // 27: '召唤?',
+    27: '召唤',
     28: '支援机械'
 };
 
@@ -53,6 +53,11 @@ const getTagColor = (tagId: number) => {
         case 25:
         case 26:
             return 'mediumslateblue';
+        case 14:
+        case 27:
+            return 'orange';
+        case 11:
+            return 'tomato';
     }
     return 'transparent';
 };
