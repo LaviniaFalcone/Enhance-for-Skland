@@ -10,6 +10,10 @@ export const getSkinPortraitUrl = (skinId: string) => {
     return `https://web.hycdn.cn/arknights/game/assets/char_skin/portrait/${skinId}.png`;
 };
 
+export const getAvatarUrl = (skinId: string) => {
+    return `https://web.hycdn.cn/arknights/game/assets/avatar/${skinId}.png`;
+};
+
 export const getSkillIconUrl = (skillId: string) => {
     return `https://web.hycdn.cn/arknights/game/assets/char_skill/${skillId}.png`;
 };

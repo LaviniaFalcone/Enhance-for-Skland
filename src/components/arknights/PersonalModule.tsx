@@ -3,7 +3,7 @@ import {Divider} from 'primereact/divider';
 import {Image} from 'primereact/image';
 import React, {Fragment} from 'react';
 import {Player} from '../../skland-api/arknights';
-import {getSkinAvatarUrl} from '../../skland-api/arknights/character';
+import {getAvatarUrl, getSkinAvatarUrl} from '../../skland-api/arknights/character';
 import ExperimentOptions from '../../store/arknights/config/ExperimentOptions';
 import {DatetimeFormat, datetimeFormat} from '../../util/time';
 import MiniProgressBar from '../MiniProgressBar';
@@ -26,7 +26,8 @@ const PersonalModule = ({model, channel}: PersonalModuleProps) => {
     const playerAccountInfo = (
         <>
             <div className='flex surface-d border-round-lg overflow-hidden'>
-                <Avatar image={getSkinAvatarUrl(status.avatar.id)} size='large'/>
+                <Avatar image={(status.avatar.type == 'ICON' ? getAvatarUrl : getSkinAvatarUrl)(status.avatar.id)}
+                        size='large'/>
             </div>
             <div className='flex flex-column gap-1'>
                 <div className='flex align-items-center gap-2'>

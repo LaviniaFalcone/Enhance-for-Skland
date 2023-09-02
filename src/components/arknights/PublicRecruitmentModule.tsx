@@ -99,7 +99,7 @@ const PublicRecruitmentModule = ({model}: PublicRecruitmentModuleProps) => {
                 <Avatar label={index.toString()}/>
                 <div className='flex flex-column flex-grow-1 justify-content-end gap-1'>
                     <div className='flex align-items-center gap-1'>
-                        {data.selectTags.map(({tagId}) => (
+                        {data.selectTags?.map(({tagId}) => (
                             <div className='text-xs surface-d border-round overflow-hidden' key={tagId}>
                                 <div className='tag' style={{background: getTagColor(tagId)}}>
                                     {tags[tagId] || `Tag_${tagId}`}
